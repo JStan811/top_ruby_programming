@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # Notes:
 #   Methods to use:
 #     - String#include?
 
-def substrings (string, array)
-  string_a = string.downcase.split(" ")
+def substrings(string, array)
+  string_a = string.downcase.split(' ')
   results = Hash.new(0)
 
   array.each do |element|
@@ -17,10 +19,9 @@ def substrings (string, array)
   end
 
   puts results
-
 end
 
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+dictionary = %w[below down go going horn how howdy it i low own part partner sit]
 
-substrings("belowlow", dictionary)
+substrings('belowlow', dictionary)
 substrings("Howdy partner, sit down! How's it going?", dictionary)
