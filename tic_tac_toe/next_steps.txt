@@ -1,0 +1,2 @@
+Next steps:
+  - Try top down approach. Start with highest level class, which I think is a Game (or GameMaster) class.
