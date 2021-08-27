@@ -22,11 +22,14 @@ class Game
   def turn_win?(player, player_board, game_board)
     player_win = false
 
+    symbol = player.name == "Player 1" ? 'X' : 'O'
+
     puts "#{player.name}, make your play:"
+    puts ''
     user_input = gets.chomp
     player_board.user_play(user_input, 1)
-    game_board.user_play(user_input, 'X')
-    puts "Game board: #{game_board.state}"
+    game_board.user_play(user_input, symbol)
+    game_board.display_board
 
     if player_board.win?(player_board.state)
       puts "#{player.name}, you win!"; player_win = true
