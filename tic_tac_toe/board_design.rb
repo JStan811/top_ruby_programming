@@ -1,25 +1,17 @@
 # frozen_string_literal: true
 
-A1 = 'X'
-A2 = 'O'
-A3 = 'X'
-B1 = 'O'
-B2 = 'X'
-B3 = 'O'
-C1 = ' '
-C2 = 'O'
-C3 = 'X'
+cell_hash = { A1: 'X', A2: 'O', A3: 'X', B1: 'O', B2: 'X', B3: 'O', C1: ' ', C2: 'O', C3: 'X' }
 
 board =
   "    _______ _______ _______
    |       |       |       |
-  A|   #{A1}   |   #{A2}   |   #{A3}   |
+  A|   #{cell_hash[:A1]}   |   #{cell_hash[:A2]}   |   #{cell_hash[:A3]}   |
    |_______|_______|_______|
    |       |       |       |
-  B|   #{B1}   |   #{B2}   |   #{B3}   |
+  B|   #{cell_hash[:B1]}   |   #{cell_hash[:B2]}   |   #{cell_hash[:B3]}   |
    |_______|_______|_______|
    |       |       |       |
-  C|   #{C1}   |   #{C2}   |   #{C3}   |
+  C|   #{cell_hash[:C1]}   |   #{cell_hash[:C2]}   |   #{cell_hash[:C3]}   |
    |_______|_______|_______|
        1       2       3
   "
