@@ -6,7 +6,7 @@ require_relative 'player'
 
 # Making the necessary objects. 1 game board to display and separate player
 # boards to make it easier to determine a win or tie
-my_game = Game.new('new')
+my_game = Game.new
 game_board = Board.new
 player1 = Player.new('Player 1')
 player1_board = Board.new
