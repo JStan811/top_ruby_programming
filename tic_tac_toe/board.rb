@@ -1,23 +1,5 @@
 # frozen_string_literal: true
 
-# I'm stuck between Game and GameMaster for this. Using a top down approach, this seems like the "top"?
-class Game
-  def initialize(state)
-    @state = state # state is like win/loss/tie etc.
-  end
-
-  def give_score(player1_score, player2_score)
-    "Player 1: #{player1_score} | Player 2: #{player2_score}"
-  end
-
-  def welcome_message
-    puts 'Tic Tac Toe'
-    puts ''
-    puts "Player 1, you control the X's. Player 2, you control the Y's."
-    puts ''
-  end
-end
-
 # game board object. Trying to figure out OOP, and this seems like a good thing to use as an object?
 class Board
   attr_accessor :state
@@ -63,14 +45,5 @@ class Board
       end
     end
     answer
-  end
-end
-
-# class for a player object. Using to distinguish between P1 and P2
-class Player
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
   end
 end
