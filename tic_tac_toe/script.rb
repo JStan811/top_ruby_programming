@@ -1,25 +1,14 @@
 # frozen_string_literal: true
 
-# Represents the board object
-class Board
-  BLANK_BOARD =
-    "     ______ ______ ______
-    |      |      |      |
-   A|      |      |      |
-    |______|______|______|
-    |      |      |      |
-   B|      |      |      |
-    |______|______|______|
-    |      |      |      |
-   C|      |      |      |
-    |______|______|______|
-       1      2      3
-  "
-  def show_blank_board
-    BLANK_BOARD
-  end
-end
+require_relative 'classes'
 
 my_board = Board.new
+my_game = Game.new('new')
 
-puts my_board.show_blank_board
+puts my_game.welcome_message
+
+puts my_board.board_look
+
+my_board.show_board
+
+user_input = gets
