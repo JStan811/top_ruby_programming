@@ -16,10 +16,6 @@ class Board
   # column_win_conditions_coordinates = [[1, 1], [1, 2], [1, 3]], [[2, 1], [2, 2], [2, 3]], [[3, 1], [3, 2], [3, 3]]
   # diagonal_win_conditions_coordinates = [[1, 3], [2, 2], [3, 1]], [[1, 1], [2, 2], [3, 3]]
 
-  def show_board
-    puts BLANK_BOARD
-  end
-
   def user_play(position, symbol)
     position = position.to_sym
     @state[position] = symbol

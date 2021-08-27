@@ -1,2 +1,8 @@
 Next steps:
-  - Try top down approach. Start with highest level class, which I think is a Game (or GameMaster) class.
+  - Figure out the display (see board_design.rb)
+  - code tie conditions
+  - add "New Game?" once game finishes
+
+Potential features:
+ - score keeper
+ - error handling ("You've entered an incorrect cell", etc.)

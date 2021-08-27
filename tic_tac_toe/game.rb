@@ -6,7 +6,7 @@ class Game
     puts welcome_message
 
     loop do
-      break if turn(player1, player1_board, game_board) || turn(player2, player2_board, game_board)
+      break if turn_win?(player1, player1_board, game_board) || turn_win?(player2, player2_board, game_board)
     end
   end
 
@@ -19,7 +19,7 @@ class Game
     puts ''
   end
 
-  def turn(player, player_board, game_board)
+  def turn_win?(player, player_board, game_board)
     player_win = false
 
     puts "#{player.name}, make your play:"
