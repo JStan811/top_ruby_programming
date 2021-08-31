@@ -3,7 +3,7 @@
 # I'm stuck between Game and GameMaster for this. Using a top down approach, this seems like the "top"?
 class Game
   def initialize
-    @valid_cells = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
+    @valid_cells = %w[A1 A2 A3 B1 B2 B3 C1 C2 C3]
   end
 
   def play_game(player1, player2, player1_board, player2_board, game_board)
@@ -11,24 +11,10 @@ class Game
 
     loop do
       turn(player1, player1_board, game_board)
-      if player1_board.win?
-        puts "#{player1.name}, you win!"
-        break
-      end
-      if game_board.tie?
-        puts 'Game tie!'
-        break
-      end
+      break if game_continue?(player1, player1_board, game_board)
 
       turn(player2, player2_board, game_board)
-      if player2_board.win?
-        puts "#{player2.name}, you win!"
-        break
-      end
-      if game_board.tie?
-        puts 'Game tie!'
-        break
-      end
+      break if game_continue?(player2, player2_board, game_board)
     end
   end
 
@@ -40,6 +26,13 @@ class Game
     puts "Player 1, you use X's. Player 2, you use O's."
     puts 'Make plays by entering the cell value (eg A1, B2, C3, etc.).'
     puts ''
+  end
+
+  def game_continue?(player, player_board, game_board)
+    puts "#{player.name}, you win!" if player_board.win?
+    puts 'Game tie!' if game_board.tie?
+
+    player_board.win? || game_board.tie?
   end
 
   def turn(player, player_board, game_board)

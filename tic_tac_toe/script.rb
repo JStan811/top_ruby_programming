@@ -16,13 +16,3 @@ player2_board = Board.new
 game_board.display_board
 
 my_game.play_game(player1, player2, player1_board, player2_board, game_board)
-
-# This is how I think a turn will work
-# 1. determine player
-# 2. display board
-# 3. get player input
-# 4. update board
-# 5. check for win or tie
-#   a. if win, declare winner and exit
-#   b. if tie, declare tie and exit
-#   c. else, continue to next turn
