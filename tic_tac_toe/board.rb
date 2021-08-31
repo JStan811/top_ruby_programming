@@ -16,23 +16,25 @@ class Board
   # column_win_conditions_coordinates = [[1, 1], [1, 2], [1, 3]], [[2, 1], [2, 2], [2, 3]], [[3, 1], [3, 2], [3, 3]]
   # diagonal_win_conditions_coordinates = [[1, 3], [2, 2], [3, 1]], [[1, 1], [2, 2], [3, 3]]
 
+  # rubocop:disable Metrics/MethodLength
   def display_board
     board =
-    "      _______ _______ _______
-     |       |       |       |
-    A|   #{@state[:A1]}   |   #{@state[:A2]}   |   #{@state[:A3]}   |
-     |_______|_______|_______|
-     |       |       |       |
-    B|   #{@state[:B1]}   |   #{@state[:B2]}   |   #{@state[:B3]}   |
-     |_______|_______|_______|
-     |       |       |       |
-    C|   #{@state[:C1]}   |   #{@state[:C2]}   |   #{@state[:C3]}   |
-     |_______|_______|_______|
-        1       2       3
-    "
+      "      _______ _______ _______
+      |       |       |       |
+      A|   #{@state[:A1]}   |   #{@state[:A2]}   |   #{@state[:A3]}   |
+      |_______|_______|_______|
+      |       |       |       |
+      B|   #{@state[:B1]}   |   #{@state[:B2]}   |   #{@state[:B3]}   |
+      |_______|_______|_______|
+      |       |       |       |
+      C|   #{@state[:C1]}   |   #{@state[:C2]}   |   #{@state[:C3]}   |
+      |_______|_______|_______|
+          1       2       3
+      "
     puts board
   end
 
+  # rubocop:enable Metrics/MethodLength
   def user_play(position, symbol)
     position = position.to_sym
     @state[position] = symbol
