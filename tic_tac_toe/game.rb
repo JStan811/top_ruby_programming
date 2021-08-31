@@ -6,7 +6,8 @@ class Game
     puts welcome_message
 
     loop do
-      break if turn_win?(player1, player1_board, game_board) || turn_win?(player2, player2_board, game_board)
+      break if turn_win?(player1, player1_board, game_board) || turn_win?(player2, player2_board, game_board) || game_tie?(game_board)
+      puts game_board.state
     end
   end
 
@@ -17,6 +18,15 @@ class Game
     puts ''
     puts "Player 1, you control the X's. Player 2, you control the Y's."
     puts ''
+  end
+
+  def game_tie?(game_board)
+    if !(game_board.state.any? { |key, value| value = ' ' })
+      puts 'Game ends in a tie.'
+      true
+    else
+      false
+    end
   end
 
   def turn_win?(player, player_board, game_board)

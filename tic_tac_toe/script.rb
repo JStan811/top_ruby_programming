@@ -13,6 +13,8 @@ player1_board = Board.new
 player2 = Player.new('Player 2')
 player2_board = Board.new
 
+puts !(game_board.state.any? { |key, value| value = ' ' })
+
 game_board.display_board
 
 my_game.play_game(player1, player2, player1_board, player2_board, game_board)
