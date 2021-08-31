@@ -39,12 +39,17 @@ class Board
     @state[position] = symbol
   end
 
-  def win?(board_state)
-    rows = win_per_type?(@row_wins, board_state)
-    columns = win_per_type?(@column_wins, board_state)
-    diagonals = win_per_type?(@diagonal_wins, board_state)
+  def win?
+    rows = win_per_type?(@row_wins, state)
+    columns = win_per_type?(@column_wins, state)
+    diagonals = win_per_type?(@diagonal_wins, state)
+
 
     rows || columns || diagonals
+  end
+
+  def tie?
+    !(state.value? ' ')
   end
 
   private
