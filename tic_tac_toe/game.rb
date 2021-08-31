@@ -33,7 +33,8 @@ class Game
   def welcome_message
     puts 'Tic Tac Toe'
     puts ''
-    puts "Player 1, you control the X's. Player 2, you control the Y's."
+    puts "Player 1, you use X's. Player 2, you use O's."
+    puts 'Make plays by entering the cell value (eg A1, B2, C3, etc.).'
     puts ''
   end
 

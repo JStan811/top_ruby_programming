@@ -16,18 +16,17 @@ class Board
   # column_win_conditions_coordinates = [[1, 1], [1, 2], [1, 3]], [[2, 1], [2, 2], [2, 3]], [[3, 1], [3, 2], [3, 3]]
   # diagonal_win_conditions_coordinates = [[1, 3], [2, 2], [3, 1]], [[1, 1], [2, 2], [3, 3]]
 
-  def display_board()
-    cell_hash = @state
+  def display_board
     board =
     "      _______ _______ _______
      |       |       |       |
-    A|   #{cell_hash[:A1]}   |   #{cell_hash[:A2]}   |   #{cell_hash[:A3]}   |
+    A|   #{@state[:A1]}   |   #{@state[:A2]}   |   #{@state[:A3]}   |
      |_______|_______|_______|
      |       |       |       |
-    B|   #{cell_hash[:B1]}   |   #{cell_hash[:B2]}   |   #{cell_hash[:B3]}   |
+    B|   #{@state[:B1]}   |   #{@state[:B2]}   |   #{@state[:B3]}   |
      |_______|_______|_______|
      |       |       |       |
-    C|   #{cell_hash[:C1]}   |   #{cell_hash[:C2]}   |   #{cell_hash[:C3]}   |
+    C|   #{@state[:C1]}   |   #{@state[:C2]}   |   #{@state[:C3]}   |
      |_______|_______|_______|
         1       2       3
     "
@@ -40,25 +39,24 @@ class Board
   end
 
   def win?
-    rows = win_per_type?(@row_wins, state)
-    columns = win_per_type?(@column_wins, state)
-    diagonals = win_per_type?(@diagonal_wins, state)
-
+    rows = win_per_type?(@row_wins)
+    columns = win_per_type?(@column_wins)
+    diagonals = win_per_type?(@diagonal_wins)
 
     rows || columns || diagonals
   end
 
   def tie?
-    !(state.value? ' ')
+    !(@state.value? ' ')
   end
 
   private
 
-  def win_per_type?(type, board_state)
+  def win_per_type?(type)
     answer = false
 
     type.each do |hash|
-      if (hash.to_a - board_state.to_a).empty?
+      if (hash.to_a - @state.to_a).empty?
         answer = true
         break
       end
