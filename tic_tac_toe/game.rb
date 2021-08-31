@@ -2,6 +2,10 @@
 
 # I'm stuck between Game and GameMaster for this. Using a top down approach, this seems like the "top"?
 class Game
+  def initialize
+    @valid_cells = ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
+  end
+
   def play_game(player1, player2, player1_board, player2_board, game_board)
     puts welcome_message
 
@@ -40,10 +44,18 @@ class Game
 
   def turn(player, player_board, game_board)
     symbol = player.name == 'Player 1' ? 'X' : 'O'
+    user_input = ''
+    user_input_value = ''
 
-    puts "#{player.name}, make your play:"
-    puts ''
-    user_input = gets.chomp
+    while @valid_cells.none?(user_input) || user_input_value ==  'X' || user_input_value == 'O'
+      puts "#{player.name}, make your play:"
+      puts ''
+      user_input = gets.chomp
+      user_input_value = game_board.state[user_input.to_sym]
+      puts 'Invalid cell.' if @valid_cells.none?(user_input)
+      puts "Cell already chosen." if user_input_value ==  'X' || user_input_value == 'O'
+    end
+
     player_board.user_play(user_input, 1)
     game_board.user_play(user_input, symbol)
     game_board.display_board
